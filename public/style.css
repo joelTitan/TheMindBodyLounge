@@ -221,12 +221,21 @@ nav.site-nav a.active {
 .hero-slide.is-active { opacity: 1; }
 
 .hero-split .hero-content {
-  max-width: none;
+  /* shrink to the headline's width so the paragraph never runs wider than it */
+  width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
+  justify-self: start;
   align-self: center;
   padding: 48px clamp(28px, 5vw, 80px);
 }
 
 /* Dark-on-white text panel */
+.hero-split .hero-content p {
+  width: 0;
+  min-width: 100%;
+}
+
 .hero-split h1 { font-size: clamp(1.4rem, 2.9vw, 2.6rem); }
 
 .hero-split .hero-content .btn-invert {
