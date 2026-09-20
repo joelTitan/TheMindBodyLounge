@@ -195,7 +195,8 @@ nav.site-nav a.active {
   align-items: stretch;
   padding: 0;
   min-height: 78vh;
-  background: var(--black);
+  background: var(--white);
+  color: var(--black);
   text-align: left;
 }
 
@@ -214,7 +215,7 @@ nav.site-nav a.active {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 1.2s ease;
+  transition: opacity 1s ease;
 }
 
 .hero-slide.is-active { opacity: 1; }
@@ -223,6 +224,18 @@ nav.site-nav a.active {
   max-width: none;
   align-self: center;
   padding: 48px clamp(28px, 5vw, 80px);
+}
+
+/* Dark-on-white text panel */
+.hero-split .hero-content .btn-invert {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+
+.hero-split .hero-content .btn-invert:hover {
+  background: transparent;
+  color: var(--black);
 }
 
 @media (max-width: 760px) {

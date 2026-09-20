@@ -45,5 +45,5 @@ document.addEventListener('DOMContentLoaded', function () {
     slides[i].classList.remove('is-active');
     i = (i + 1) % slides.length;
     slides[i].classList.add('is-active');
-  }, 5000);
+  }, 4000);
 })();
