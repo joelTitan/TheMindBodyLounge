@@ -227,6 +227,8 @@ nav.site-nav a.active {
 }
 
 /* Dark-on-white text panel */
+.hero-split h1 { font-size: clamp(1.4rem, 2.9vw, 2.6rem); }
+
 .hero-split .hero-content .btn-invert {
   background: var(--black);
   color: var(--white);
@@ -245,7 +247,7 @@ nav.site-nav a.active {
   }
   .hero-slides { min-height: 0; height: 45vh; }
   .hero-split .hero-content { padding: 36px 24px 44px; }
-  .hero h1 { font-size: 2rem; }
+  .hero-split h1 { font-size: 6vw; }
 }
 
 @media (prefers-reduced-motion: reduce) {
