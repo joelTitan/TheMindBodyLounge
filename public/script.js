@@ -35,3 +35,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+// Home hero: cross-fade through the photos (paused for reduced-motion users)
+(function () {
+  var slides = document.querySelectorAll('.hero-slide');
+  if (slides.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var i = 0;
+  setInterval(function () {
+    slides[i].classList.remove('is-active');
+    i = (i + 1) % slides.length;
+    slides[i].classList.add('is-active');
+  }, 5000);
+})();
