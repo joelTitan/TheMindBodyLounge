@@ -105,3 +105,11 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('resize', refresh);
   refresh();
 })();
+
+// Temporary promo sections: hide automatically once data-expires (YYYY-MM-DD) has passed
+(function () {
+  document.querySelectorAll('[data-expires]').forEach(function (el) {
+    var end = new Date(el.getAttribute('data-expires') + 'T00:00:00');
+    if (!isNaN(end) && new Date() >= end) el.hidden = true;
+  });
+})();
