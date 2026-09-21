@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=14">
+<link rel="stylesheet" href="style.css?v=15">
 </head>
 <body>
   <div class="top-bar">
@@ -46,13 +46,16 @@
       <div class="container contact-grid">
         <div>
           <h4 style="font-family:var(--font-display);font-weight:400;font-size:1.3rem;margin-bottom:16px;">Drop us a line!</h4>
-          <div class="form-disabled-note">Online messaging is being set up &mdash; for now, please call or email us directly (details on the right), or use the buttons above to book online.</div>
-          <form class="contact-form" onsubmit="return false;">
-            <input type="text" name="name" placeholder="Name" disabled>
-            <input type="email" name="email" placeholder="Email" disabled>
-            <textarea name="message" placeholder="Message"></textarea>
-            <button class="btn" type="submit" disabled title="Coming soon">Send</button>
-            <p class="form-note">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</p>
+          <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="972b6366-01ec-4014-a089-fbab5e4b9535">
+            <input type="hidden" name="subject" value="New message from themindbodylounge.com">
+            <input type="hidden" name="from_name" value="The Mind Body Lounge Website">
+            <input type="checkbox" name="botcheck" class="form-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="text" name="name" placeholder="Name" autocomplete="name" required>
+            <input type="email" name="email" placeholder="Email" autocomplete="email" required>
+            <textarea name="message" placeholder="Message" required></textarea>
+            <button class="btn" type="submit">Send</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
           </form>
         </div>
 
@@ -141,6 +144,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=14"></script>
+  <script src="script.js?v=15"></script>
 </body>
 </html>

@@ -47,3 +47,36 @@ document.addEventListener('DOMContentLoaded', function () {
     slides[i].classList.add('is-active');
   }, 4000);
 })();
+
+// Contact form: send via Web3Forms without leaving the page
+(function () {
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+  var status = form.querySelector('.form-status');
+  var button = form.querySelector('button[type="submit"]');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    status.className = 'form-status';
+    status.textContent = 'Sending…';
+    button.disabled = true;
+
+    fetch(form.action, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(Object.fromEntries(new FormData(form)))
+    })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (!data.success) throw new Error(data.message || 'failed');
+        form.reset();
+        status.className = 'form-status success';
+        status.textContent = 'Thank you! Your message was sent. We’ll be in touch soon.';
+      })
+      .catch(function () {
+        status.className = 'form-status error';
+        status.textContent = 'Sorry, something went wrong. Please try again or email info@themindbodylounge.com.';
+      })
+      .then(function () { button.disabled = false; });
+  });
+})();
