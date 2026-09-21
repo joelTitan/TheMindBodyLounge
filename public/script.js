@@ -80,3 +80,28 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(function () { button.disabled = false; });
   });
 })();
+
+// Reviews: show "Read more" only on cards whose text is clamped, and toggle full text
+(function () {
+  var cards = document.querySelectorAll('.review-card');
+  if (!cards.length) return;
+  function refresh() {
+    cards.forEach(function (card) {
+      var text = card.querySelector('.review-text');
+      var btn = card.querySelector('.review-more');
+      if (card.classList.contains('expanded')) return;
+      btn.hidden = text.scrollHeight <= text.clientHeight + 1;
+    });
+  }
+  cards.forEach(function (card) {
+    var btn = card.querySelector('.review-more');
+    btn.addEventListener('click', function () {
+      var open = card.classList.toggle('expanded');
+      btn.textContent = open ? 'Show less' : 'Read more';
+      btn.setAttribute('aria-expanded', open);
+    });
+  });
+  window.addEventListener('load', refresh);
+  window.addEventListener('resize', refresh);
+  refresh();
+})();
