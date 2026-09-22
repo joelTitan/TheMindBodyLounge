@@ -1004,7 +1004,7 @@ form.contact-form button[disabled] {
 
 .pricing-card {
   background: var(--white);
-  border: 1px solid #ece6da;
+  border: 1px solid #b8b8b8;
   border-radius: 8px;
   padding: 26px 22px;
   text-align: center;
@@ -1104,7 +1104,7 @@ form.contact-form button[disabled] {
   margin: 0 auto 36px;
   padding: 22px 26px;
   background: #faf8f4;
-  border: 1px solid #ece6da;
+  border: 1px solid #b8b8b8;
   border-left: 4px solid #c9a24e;
   border-radius: 6px;
 }
@@ -1125,7 +1125,7 @@ form.contact-form button[disabled] {
 }
 
 .pr-card {
-  border: 1px solid #ece6da;
+  border: 1px solid #b8b8b8;
   border-top: 6px solid var(--accent);
   border-radius: 8px;
   padding: 26px 20px 24px;
@@ -1236,7 +1236,7 @@ form.contact-form button[disabled] {
 
 .pr-table-wrap {
   overflow-x: auto;
-  border: 1px solid #ece6da;
+  border: 1px solid #b8b8b8;
   border-radius: 8px;
   background: var(--white);
 }
@@ -1306,7 +1306,7 @@ form.contact-form button[disabled] {
 .pr-halo {
   text-align: center;
   padding: 24px 18px;
-  border: 1px solid #ece6da;
+  border: 1px solid #b8b8b8;
   border-top: 6px solid #a3283a;
   border-radius: 8px;
   display: flex;
@@ -1338,7 +1338,7 @@ form.contact-form button[disabled] {
 
 .pr-pack {
   background: var(--white);
-  border: 1px solid #ece6da;
+  border: 1px solid #b8b8b8;
   border-radius: 8px;
   padding: 24px 22px;
 }
