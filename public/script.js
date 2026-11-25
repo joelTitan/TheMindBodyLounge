@@ -106,10 +106,15 @@ document.addEventListener('DOMContentLoaded', function () {
   refresh();
 })();
 
-// Temporary promo sections: hide automatically once data-expires (YYYY-MM-DD) has passed
+// Temporary promo sections: show only between data-starts and data-expires (YYYY-MM-DD, local time).
+// Add ?preview=promos to the URL to see upcoming promos before their start date.
 (function () {
-  document.querySelectorAll('[data-expires]').forEach(function (el) {
-    var end = new Date(el.getAttribute('data-expires') + 'T00:00:00');
-    if (!isNaN(end) && new Date() >= end) el.hidden = true;
+  var now = new Date();
+  var preview = /[?&]preview=promos\b/.test(location.search);
+  document.querySelectorAll('[data-starts], [data-expires]').forEach(function (el) {
+    var start = el.getAttribute('data-starts') ? new Date(el.getAttribute('data-starts') + 'T00:00:00') : null;
+    var end = el.getAttribute('data-expires') ? new Date(el.getAttribute('data-expires') + 'T00:00:00') : null;
+    el.hidden = (start && now < start && !preview) || (end && now >= end);
   });
+  if (document.querySelector('.bf-bar:not([hidden])')) document.documentElement.classList.add('has-bf-bar');
 })();
